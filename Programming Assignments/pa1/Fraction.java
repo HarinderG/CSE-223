@@ -1,3 +1,11 @@
+/*
+	Harinder Gakhal
+	4/12/19
+	CSE 223
+	Programming Assignment 1
+	This class is designed to manage rational numebrs in fraction form.
+*/
+
 class Fraction{
 	private int num, denom;
 
