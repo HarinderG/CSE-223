@@ -73,7 +73,7 @@ class Fraction{
 		return (double) num/denom;
 	}
 
-	public void reduce()
+	private void reduce()
 	{
 		//Euclidean algorithm
 		int a = num;
