@@ -1,7 +1,7 @@
 class Fraction{
 	private int num, denom;
 
-	//Constructors
+	// Constructors
 	public Fraction (int n, int d)
 	{
 		num = n;
@@ -16,7 +16,7 @@ class Fraction{
 		reduce();
 	}
 
-	//Methods
+	// Methods
 	public Fraction add (Fraction n)
 	{
 		int resultN = (num * n.getDenom()) + (n.getNum() * denom);
@@ -33,7 +33,7 @@ class Fraction{
 		return new Fraction (resultN , resultD);
 	}
 
-	public Fraction mult (Fraction n)
+	public Fraction mul (Fraction n)
 	{
 		int resultN = num * n.getNum();
 		int resultD = denom * n.getDenom();
@@ -49,7 +49,7 @@ class Fraction{
 		return new Fraction(resultN, resultD);
 	}
 
-	//Getters
+	// Getters
 	public int getNum()
 	{
 		return num;
@@ -62,7 +62,9 @@ class Fraction{
 
 	public String toString()
 	{
-		if (denom == 1)
+		if (denom == 0)
+			return "" + Double.NaN;
+		else if (denom == 1 || num == 0)
 			return "" + num;
 		else
 			return num + "/" + denom;
@@ -70,31 +72,37 @@ class Fraction{
 
 	public double toDouble()
 	{
-		return (double) num/denom;
+		if (denom == 0)
+			return Double.NaN;
+		else
+			return (double) num/denom;
 	}
 
 	private void reduce()
 	{
-		//Euclidean algorithm
-		int a = num;
-		int b = denom;
-		int c = -1;
-
-		c = a%b;
-		while(c != 0)
+		// Skip if divide by 0
+		if (denom != 0)
 		{
-			a = b;
-			b = c;
-			c = a%b;
+			// Euclidean algorithm
+			int a = num;
+			int b = denom;
+			int c = a%b;
+
+			while(c != 0)
+			{
+				a = b;
+				b = c;
+				c = a%b;
+			}
+
+			num /= b;
+			denom /= b;
+
+			if (num > 0 && denom < 0)
+			{
+				num *= -1;
+				denom *= -1;
+			}
 		}
-
-		num /= b;
-		denom /= b;
-
-		// if (num < 0 && denom < 0)
-		// {
-		// 	num *= -1;
-		// 	denom *= -1;
-		// }
 	}
 }
