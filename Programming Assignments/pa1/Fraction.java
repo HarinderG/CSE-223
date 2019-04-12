@@ -11,7 +11,8 @@ class Fraction{
 
 	// Constructors
 	public Fraction (int n, int d)
-	{
+	{	
+		// Will set the values of num and denom and reduce if necessary
 		num = n;
 		denom = d;
 		reduce();
@@ -19,6 +20,7 @@ class Fraction{
 
 	public Fraction (int n)
 	{
+		// If no denominator is given, set it to 1
 		num = n;
 		denom = 1;
 		reduce();
@@ -27,6 +29,7 @@ class Fraction{
 	// Methods
 	public Fraction add (Fraction n)
 	{
+		// Find common denominator (Does not have to be LCD since the fractin will be reduced later)
 		int resultN = (num * n.getDenom()) + (n.getNum() * denom);
 		int resultD = denom * n.getDenom();
 
@@ -35,6 +38,7 @@ class Fraction{
 
 	public Fraction sub (Fraction n)
 	{
+		// Find common denominator then subtract
 		int resultN = (num * n.getDenom()) - (n.getNum() * denom);
 		int resultD = denom * n.getDenom();
 
@@ -43,6 +47,7 @@ class Fraction{
 
 	public Fraction mul (Fraction n)
 	{
+		// Multiply across
 		int resultN = num * n.getNum();
 		int resultD = denom * n.getDenom();
 
@@ -51,6 +56,7 @@ class Fraction{
 
 	public Fraction div (Fraction n)
 	{
+		// Multiply the reciprocal
 		int resultN = num * n.getDenom();
 		int resultD = denom * n.getNum();
 
@@ -68,6 +74,7 @@ class Fraction{
 		return denom;
 	}
 
+	// Override default toString() to print out in the correct format
 	public String toString()
 	{
 		if (denom == 0)
@@ -78,6 +85,7 @@ class Fraction{
 			return num + "/" + denom;
 	}
 
+	// Return floating point version of the fraction
 	public double toDouble()
 	{
 		if (denom == 0)
@@ -106,6 +114,7 @@ class Fraction{
 			num /= b;
 			denom /= b;
 
+			// Flips the negatives. e.g 1/-2 to -1/2
 			if (num > 0 && denom < 0)
 			{
 				num *= -1;

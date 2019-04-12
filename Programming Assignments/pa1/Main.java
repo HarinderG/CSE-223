@@ -1,3 +1,11 @@
+/*
+	Harinder Gakhal
+	4/12/19
+	CSE 223
+	Programming Assignment 1
+	This main class tests the Fraction class provided by Nicholas Macias
+*/
+
 class Main{
 	public static void main(String[] args)
 	{
