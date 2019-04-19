@@ -1,6 +1,6 @@
 /*
 	Harinder Gakhal
-	4/12/19
+	4/18/19
 	CSE 223
 	Programming Assignment 1
 	This class is designed to manage rational numebrs in fraction form.
@@ -30,37 +30,25 @@ class Fraction{
 	public Fraction add (Fraction n)
 	{
 		// Find common denominator (Does not have to be LCD since the fractin will be reduced later)
-		int resultN = (num * n.getDenom()) + (n.getNum() * denom);
-		int resultD = denom * n.getDenom();
-
-		return new Fraction (resultN , resultD);
+		return new Fraction (num * n.getDenom() + n.getNum() * denom , denom * n.getDenom());
 	}
 
 	public Fraction sub (Fraction n)
 	{
 		// Find common denominator then subtract
-		int resultN = (num * n.getDenom()) - (n.getNum() * denom);
-		int resultD = denom * n.getDenom();
-
-		return new Fraction (resultN , resultD);
+		return new Fraction (num * n.getDenom() - n.getNum() * denom , denom * n.getDenom());
 	}
 
 	public Fraction mul (Fraction n)
 	{
 		// Multiply across
-		int resultN = num * n.getNum();
-		int resultD = denom * n.getDenom();
-
-		return new Fraction (resultN, resultD);
+		return new Fraction (num * n.getNum(), denom * n.getDenom());
 	}
 
 	public Fraction div (Fraction n)
 	{
 		// Multiply the reciprocal
-		int resultN = num * n.getDenom();
-		int resultD = denom * n.getNum();
-
-		return new Fraction(resultN, resultD);
+		return new Fraction(num * n.getDenom(), denom * n.getNum());
 	}
 
 	// Getters
