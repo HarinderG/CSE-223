@@ -1,0 +1,11 @@
+Q:
+Is it an animal?
+A:
+Pig
+Q:
+n
+A:
+n
+A:
+Rock
+
